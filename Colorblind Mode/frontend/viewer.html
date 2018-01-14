@@ -1,0 +1,160 @@
+<!doctype html>
+<!--
+Copyright 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with the License. A copy of the License is located at
+
+    http://aws.amazon.com/apache2.0/
+
+or in the "license" file accompanying this file. This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+-->
+<!--
+
+   Use this file as a starting point for your viewer extension view.
+
+-->
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/viewer.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+		<script type="text/javascript" src="./js/viewer.js"></script>
+    </head>
+    <body>
+	<select id="deficiency-type">
+	<option value = 0 selected>Normal</option>
+	<option value = 1>Protanopia</option>
+	<option value = 2>Protanomaly</option>
+	<option value = 3>Deuteranopia</option>
+	<option value = 4>Deuteranomaly</option>
+	<option value = 5>Tritanopia</option>
+	<option value = 6>Tritanomaly</option>
+	<option value = 7>Achromatopsia</option>
+	<option value = 8>Achromatomaly</option>
+	<option value = 9>Low Contast</option>
+	</select>
+	 <iframe 
+		  id="twitch-player"
+		  src="https://player.twitch.tv/?channel=hypnoticz"
+		  height="720"
+		  width="1280"
+		  frameborder="0"
+		  scrolling="no"
+		  allowfullscreen="true"
+		  style="display: block;">
+	  </iframe>
+        <script src="https://extension-files.twitch.tv/helper/v1/twitch-ext.min.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/viewer.js"></script>
+    </body>
+	
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="0" height="0" aria-hidden="true">
+	<defs>
+		<filter id="normal">
+			<feColorMatrix values="1 0 0 0 0
+				0 1 0 0 0
+				0 0 1 0 0
+				0 0 0 1 0"/>
+		</filter>
+		<filter id="protanopia" color-interpolation-filters="sRGB">
+			<feColorMatrix values="0.152286 1.052583 -0.204868 0 0
+				0.114503 0.786281 0.099216 0 0
+				-0.003882 -0.048116 1.051998 0 0
+				0 0 0 1 0"/>
+			<feComponentTransfer>
+				<feFuncB type="gamma" exponent=".9"/>
+				<feFuncR type="gamma" exponent=".9"/>
+				<feFuncG type="gamma" exponent=".9"/>
+			</feComponentTransfer>
+		</filter>
+		<filter id="protanomaly" color-interpolation-filters="sRGB">
+			<feColorMatrix values="0.458064 0.679578 -0.137642 0 0
+				0.092785 0.846313 0.060902 0 0
+				-0.007494 -0.016807 1.024301 0 0
+				0 0 0 1 0"/>
+			<feComponentTransfer>
+				<feFuncB type="gamma" exponent=".9"/>
+				<feFuncR type="gamma" exponent=".9"/>
+				<feFuncG type="gamma" exponent=".9"/>
+			</feComponentTransfer>
+		</filter>
+		<filter id="deuteranopia" color-interpolation-filters="sRGB">
+			<feColorMatrix values="0.367322 0.860646 -0.227968 0 0
+				0.280085 0.672501 0.047413 0 0
+				-0.011820 0.042940 0.968881 0 0
+				0 0 0 1 0"/>
+			<feComponentTransfer>
+				<feFuncB type="gamma" exponent=".9"/>
+				<feFuncR type="gamma" exponent=".9"/>
+				<feFuncG type="gamma" exponent=".9"/>
+			</feComponentTransfer>
+		</filter>
+		<filter id="deuteranomaly" color-interpolation-filters="sRGB">
+			<feColorMatrix values="0.547494 0.607765 -0.155259 0 0
+				0.181692 0.781742 0.036566 0 0
+				-0.010410 0.027275 0.983136 0 0
+				0 0 0 1 0"/>
+			<feComponentTransfer>
+				<feFuncB type="gamma" exponent=".9"/>
+				<feFuncR type="gamma" exponent=".9"/>
+				<feFuncG type="gamma" exponent=".9"/>
+			</feComponentTransfer>
+		</filter>
+		<filter id="tritanopia" color-interpolation-filters="sRGB">
+			<feColorMatrix values="1.255528 -0.076749 -0.178779 0 0
+				-0.078411 0.930809 0.147602 0 0
+				0.004733 0.691367 0.303900 0 0
+				0 0 0 1 0"/>
+			<feComponentTransfer>
+				<feFuncB type="gamma" exponent=".9"/>
+				<feFuncR type="gamma" exponent=".9"/>
+				<feFuncG type="gamma" exponent=".9"/>
+			</feComponentTransfer>
+		</filter>
+		<filter id="tritanomaly" color-interpolation-filters="sRGB">
+			<feColorMatrix values="1.017277 0.027029 -0.044306 0 0
+				-0.006113 0.958479 0.047634 0 0
+				0.006379 0.248708 0.744913 0 0
+				0 0 0 1 0"/>
+			<feComponentTransfer>
+				<feFuncB type="gamma" exponent=".9"/>
+				<feFuncR type="gamma" exponent=".9"/>
+				<feFuncG type="gamma" exponent=".9"/>
+			</feComponentTransfer>
+		</filter>
+		<filter id="achromatopsia" color-interpolation-filters="sRGB">
+			<feColorMatrix values="0.212656 0.715158 0.072186 0 0
+				0.212656 0.715158 0.072186 0 0
+				0.212656 0.715158 0.072186 0 0
+				0 0 0 1 0"/>
+			<feColorMatrix type="saturate" values="0" color-interpolation-filters="sRGB"/>
+			<feComponentTransfer>
+				<feFuncR type="gamma" exponent=".9"/>
+				<feFuncG type="gamma" exponent=".9"/>
+				<feFuncB type="gamma" exponent=".9"/>
+			</feComponentTransfer>
+		</filter>
+		<filter id="achromatomaly" color-interpolation-filters="sRGB">
+			<feColorMatrix type="saturate" values="0.5"/>
+			<feComponentTransfer>
+				<feFuncR type="gamma" exponent=".9"/>
+				<feFuncG type="gamma" exponent=".9"/>
+				<feFuncB type="gamma" exponent=".9"/>
+			</feComponentTransfer>
+		</filter>
+		<filter id="low-contrast" color-interpolation-filters="sRGB">
+			<feComponentTransfer>
+				<!-- slope = [amount] intercept = (1 - [amount] / 2) -->
+				<feFuncR type="linear" slope=".5" intercept=".25"/>
+				<feFuncG type="linear" slope=".5" intercept=".25"/>
+				<feFuncB type="linear" slope=".5" intercept=".25"/>
+			</feComponentTransfer>
+		</filter>
+	</defs>
+</svg>
+</html>
+
