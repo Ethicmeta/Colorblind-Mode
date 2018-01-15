@@ -1,4 +1,2 @@
-# extensions-samples
-This repository contains samples illustrating how to create Twitch Extensions, as well as the Extensions Boilerplate.
-
-1. [Boilerplate](https://github.com/TwitchDev/extensions-samples/tree/master/boilerplate) -  A simple starting point to create, develop, and test your Extension.
+# Colorblind Mode
+Unfortunately, with the way that Twitch extensions function, I cannot change the live video color elements from within the extension environment. Hopefully this can be tuned to whatever projects pop up in the future.
