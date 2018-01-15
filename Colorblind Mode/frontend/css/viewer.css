@@ -30,11 +30,9 @@ div {
 }
 
 select {
-	position: absolute;
-	right: 0;
-	top: 0;
-	display: none;
-	margin:4px 0 8px;
+    float:right;
+	display: block;
+	margin:110px 10px 8px;
 	margin-bottom:20px;
 	border-radius:3px;
 	background:#f3f3f3 30%;

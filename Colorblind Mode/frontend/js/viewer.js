@@ -23,7 +23,7 @@ $( document ).ready(function() {
 	}
 	
 	var i = null;
-	$("body").mousemove(function() {
+	$("iframe").mousemove(function() {
 		clearTimeout(i);
 		$("#deficiency-type").show("slow");
 		i = setTimeout(function () {
@@ -35,34 +35,34 @@ $( document ).ready(function() {
 		var type = parseInt($(this).val());
 		switch (type){
 			case 0:
-				injectStyles('body { filter: none; }');
+				injectStyles('iframe { filter: none; }');
 				break;
 			case 1:
-			injectStyles('body { filter: url(#protanopia); }');
+			injectStyles('iframe { filter: url(#protanopia); }');
 				break;
 			case 2:
-				injectStyles('body { filter: url(#Protanomaly) }');
+				injectStyles('iframe { filter: url(#Protanomaly) }');
 				break;
 			case 3:
-				injectStyles('body { filter: url(#deuteranopia) }');
+				injectStyles('iframe { filter: url(#deuteranopia) }');
 				break;
 			case 4:
-				injectStyles('body { filter: url(#deuteranomaly) }');
+				injectStyles('iframe { filter: url(#deuteranomaly) }');
 				break;
 			case 5:
-				injectStyles('body { filter: url(#tritanopia) }');
+				injectStyles('iframe { filter: url(#tritanopia) }');
 				break;
 			case 6:
-				injectStyles('body { filter: url(#tritanomaly) }');
+				injectStyles('iframe { filter: url(#tritanomaly) }');
 				break;
 			case 7:
-				injectStyles('body { filter: url(#achromatopsia) }');
+				injectStyles('iframe { filter: url(#achromatopsia) }');
 				break;
 			case 8:
-				injectStyles('body { filter: url(#achromatomaly) }');
+				injectStyles('iframe { filter: url(#achromatomaly) }');
 				break;
 			case 9:
-				injectStyles('body { filter: url(#low-contrast) }');
+				injectStyles('iframe { filter: url(#low-contrast) }');
 				break;
 			default:
 				break;
