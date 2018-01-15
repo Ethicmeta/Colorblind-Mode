@@ -21,42 +21,51 @@ $( document ).ready(function() {
 		html: '&shy;<style>' + rule + '</style>'
 	  }).appendTo("body");    
 	}
-
-		$("#deficiency-type").change(function(){		
-			var type = parseInt($(this).val());
-			switch (type){
-				case 0:
-					injectStyles('body { filter: none; }');
-					break;
-				case 1:
-				injectStyles('body { filter: url(#protanopia); }');
-					break;
-				case 2:
-					injectStyles('body { filter: url(#Protanomaly) }');
-					break;
-				case 3:
-					injectStyles('body { filter: url(#deuteranopia) }');
-					break;
-				case 4:
-					injectStyles('body { filter: url(#deuteranomaly) }');
-					break;
-				case 5:
-					injectStyles('body { filter: url(#tritanopia) }');
-					break;
-				case 6:
-					injectStyles('body { filter: url(#tritanomaly) }');
-					break;
-				case 7:
-					injectStyles('body { filter: url(#achromatopsia) }');
-					break;
-				case 8:
-					injectStyles('body { filter: url(#achromatomaly) }');
-					break;
-				case 9:
-					injectStyles('body { filter: url(#low-contrast) }');
-					break;
-				default:
-					break;
-			}
-		})
+	
+	var i = null;
+	$("body").mousemove(function() {
+		clearTimeout(i);
+		$("#deficiency-type").show("slow");
+		i = setTimeout(function () {
+			$("#deficiency-type").hide("slow");
+		}, 5000);
+	});
+	
+	$("#deficiency-type").change(function(){		
+		var type = parseInt($(this).val());
+		switch (type){
+			case 0:
+				injectStyles('body { filter: none; }');
+				break;
+			case 1:
+			injectStyles('body { filter: url(#protanopia); }');
+				break;
+			case 2:
+				injectStyles('body { filter: url(#Protanomaly) }');
+				break;
+			case 3:
+				injectStyles('body { filter: url(#deuteranopia) }');
+				break;
+			case 4:
+				injectStyles('body { filter: url(#deuteranomaly) }');
+				break;
+			case 5:
+				injectStyles('body { filter: url(#tritanopia) }');
+				break;
+			case 6:
+				injectStyles('body { filter: url(#tritanomaly) }');
+				break;
+			case 7:
+				injectStyles('body { filter: url(#achromatopsia) }');
+				break;
+			case 8:
+				injectStyles('body { filter: url(#achromatomaly) }');
+				break;
+			case 9:
+				injectStyles('body { filter: url(#low-contrast) }');
+				break;
+			default:
+				break;
+		}
+	})
 })
